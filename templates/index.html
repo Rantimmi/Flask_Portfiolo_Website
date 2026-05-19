@@ -1,0 +1,470 @@
+<!from flask import url_for
+DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfiolo Website</title>
+    <!-- <link rel="stylesheet" href="css/main.css" /> -->
+    <link rel="stylesheet" href={{ url_for('static', filename='css/main.css') }} />
+  </head>
+  <body>
+    <!-- NavBar -->
+    <nav id="desktop-nav" class="container p-6 mx-auto">
+      <div class="container flex items-center justify-between">
+        <div id="logo-name" class="text-4xl font-medium sm:hidden lg:block">
+          John Doe
+        </div>
+        <div class="hidden space-x-8 text-2xl lg:flex">
+          <a
+            href="#about"
+            class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+            >About</a
+          >
+          <a
+            href="#experience"
+            class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+            >Experience</a
+          >
+          <a
+            href="#projects"
+            class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+            >Projects</a
+          >
+          <a
+            href="#contact-me"
+            class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- HamBurger Nav -->
+    <nav
+      id="hamburger-nav"
+      class="flex items-center justify-between sm:mx-10 lg:hidden"
+    >
+      <div class="logo">John Doe</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <!-- Profile Section -->
+    <section id="profile" class="flex items-center justify-center">
+      <div
+        class="container flex flex-col items-center justify-center sm:gap md:gap-10 mt-14 xl:space-x-0 g:mx-60 md:mt-28 lg:mt-52 lg:flex lg:flex-row lg:justify-center lg:items-center"
+      >
+        <!-- Profile Image Container -->
+        <div class="container w-72 h-72 md:h-96 lg:mr-0 lg:-ml-0 md:w-96">
+          <!-- <img src="./assets/profile-pic.png" alt="" /> -->
+          <img src="{{ url_for('static', filename='images/assets/profile-pic.png') }}" alt="" />
+        </div>
+        <!-- Profile Info -->
+        <div class="flex flex-col items-center gap-5 mt-8 lg:mr-0 md:w-96">
+          <p class="text-base font-bold text-lightGrey">Hello, I'm</p>
+          <h1 class="text-5xl font-bold">John Doe</h1>
+          <h2 class="text-3xl font-bold text-lightGrey">Frontend Developer</h2>
+          <!-- Buttons -->
+          <div class="flex gap-4">
+            <button
+              class="px-5 py-3 text-sm font-semibold transition-all ease-in-out delay-75 border-2 border-solid rounded-full border-darkGray hover:bg-darkGray hover:text-white"
+              onclick="window.open('{{ url_for('static', filename='images/assets/resume-example.pdf') }}')""
+            >
+              Download CV
+            </button>
+            <button
+              class="px-5 py-3 text-sm font-semibold text-white transition-all ease-in-out delay-75 rounded-full bg-darkGray hover:bg-black"
+            >
+              Contact Info
+              <!-- Social Container -->
+            </button>
+          </div>
+          <div class="flex gap-3">
+            <img
+              class="h-8 cursor-pointer"
+              src={{ url_for('static', filename='images/assets/linkedin.png') }}
+              alt=""
+            />
+            <img class="h-8 cursor-pointer" src={{ url_for('static', filename='images/assets/github.png') }} alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Me -->
+    <section
+      id="about-me"
+      class="flex flex-col items-center justify-center lg:relative"
+    >
+      <!-- About Me Text and Header -->
+      <div class="flex flex-col gap-5 text-center mt-28">
+        <p class="text-base text-midLightGrey">Get To Know More</p>
+        <h1 class="text-5xl font-bold">About Me</h1>
+      </div>
+      <!-- Details and Image -->
+
+      <div
+        class="flex flex-col items-center justify-center sm:gap sm:px- md:gap-10 mt-14 xl:space-x-0 md:mt-28 md:mx-28 lg:flex lg:flex-row lg:justify-center lg:items-center lg:mx-44"
+      >
+        <div class="m-auto lg:h-96 lg:w-96">
+          <div class="w-72 h-72 lg:h-96 lg:w-96">
+            <img src="{{ url_for('static', filename='images/assets/about-pic.png') }}" class="rounded-lg" alt="" />
+          </div>
+        </div>
+
+        <div
+          id="experience-container"
+          class="container flex items-center justify-center mt-6 sm:flex-col sm:flex sm:px-5 gap-9 lg:w-auto"
+        >
+          <div class="flex flex-col gap-6 sm:flex-col sm:flex">
+            <div id="info-block" class="gap-9 sm:flex md:flex md:flex-row">
+              <div
+                class="flex flex-col items-center flex-1 gap-4 p-3 border-2 border-solid rounded-lg border-lightGrey"
+              >
+                <div class="mt-4 h-9 w-9">
+                  <img src="{{ url_for('static', filename='images/assets/experience.png') }}" alt="" />
+                </div>
+                <div class="mb-4 text-center">
+                  <h3 class="font-bold text-lg/[1.17rem]">Experience</h3>
+                  <p class="mt-2 text-base text-midLightGrey">2+ years</p>
+                  <p class="text-base text-midLightGrey">
+                    Frontend Development
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="flex flex-col items-center flex-1 gap-4 p-3 border-2 border-solid rounded-lg border-lightGrey"
+              >
+                <div class="mt-4 h-9 w-9">
+                  <img src="{{ url_for('static', filename='images/assets/education.png') }}" alt="" />
+                </div>
+                <div class="mb-4 text-center">
+                  <h3 class="font-bold text-lg/[1.17rem]">Education</h3>
+                  <p class="mt-2 text-base text-midLightGrey">
+                    B.Sc. Bachelors Degree
+                  </p>
+                  <p class="text-base text-midLightGrey">
+                    M.Sc. Masters Degree
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div id="para" class="">
+              <p class="leading-6 text-midLightGrey">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
+                quis reprehenderit et laborum, rem, dolore eum quod voluptate
+                exercitationem nobis, nihil esse debitis maxime facere minus
+                sint delectus velit in eos quo officiis explicabo deleniti
+                dignissimos. Eligendi illum libero dolorum cum laboriosam
+                corrupti quidem, reiciendis ea magnam? Nulla, impedit fuga!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="{{ url_for('static', filename='images/assets/arrow.png') }}"
+        class="absolute hidden h-8 cursor-pointer lg:block right-20 bottom-4"
+        alt=""
+        onclick="location.href='./#experience'"
+      />
+    </section>
+    <!-- Experience Section -->
+    <section
+      id="experience"
+      class="flex flex-col items-center justify-center lg:relative"
+    >
+      <div class="flex flex-col gap-5 mt-48 text-center">
+        <p class="text-base text-midLightGrey">Explore My</p>
+        <h1 class="text-5xl font-bold">Experience</h1>
+      </div>
+      <div id="experience-block" class="mt-8 sm:mx-10 lg:mx-44">
+        <div class="flex flex-wrap gap-8 lg:mt-0">
+          <div
+            class="flex-1 p-6 text-center border-2 rounded-lg border-lightGrey"
+          >
+            <h2 class="mb-8 text-3xl font-bold text-center text-lightGrey">
+              Frontend Development
+            </h2>
+            <div
+              class="flex flex-row flex-wrap justify-around gap-10 text-left"
+            >
+              <article class="flex items-center gap-6">
+                <img src="{{ url_for('static', filename='images/assets/checkmark.png') }}" class="mt-4 h-9 w-9" alt="" />
+                <div class="mt-10">
+                  <h3 class="text-lg font-bold">HTML</h3>
+                  <p class="text-lg text-lightGrey">Experienced</p>
+                </div>
+              </article>
+              <article class="flex items-center gap-6">
+                <img src="{{ url_for('static', filename='images/assets/checkmark.png') }}" class="mt-4 h-9 w-9" alt="" />
+                <div class="mt-10">
+                  <h3 class="text-lg font-bold">CSS</h3>
+                  <p class="text-lg text-lightGrey">Experienced</p>
+                </div>
+              </article>
+              <article class="flex items-center gap-6">
+                <img src="{{ url_for('static', filename='images/assets/checkmark.png') }}" class="mt-4 h-9 w-9" alt="" />
+                <div class="mt-10">
+                  <h3 class="text-lg font-bold">SASS</h3>
+                  <p class="text-lg text-lightGrey">Intermediate</p>
+                </div>
+              </article>
+              <article class="flex items-center gap-6">
+                <img src="{{ url_for('static', filename='images/assets/checkmark.png') }}" class="mt-4 h-9 w-9" alt="" />
+                <div class="mt-10">
+                  <h3 class="text-lg font-bold">JavaScript</h3>
+                  <p class="text-lg text-lightGrey">Basic</p>
+                </div>
+              </article>
+              <article class="flex items-center gap-6">
+                <img src="{{ url_for('static', filename='images/assets/checkmark.png') }}" class="mt-4 h-9 w-9" alt="" />
+                <div class="mt-10">
+                  <h3 class="text-lg font-bold">TypeScript</h3>
+                  <p class="text-lg text-lightGrey">Basic</p>
+                </div>
+              </article>
+              <article class="flex items-center gap-6">
+                <img src="{{ url_for('static', filename='images/assets/checkmark.png') }}" class="mt-4 h-9 w-9" alt="" />
+                <div class="mt-10">
+                  <h3 class="text-lg font-bold">Material UI</h3>
+                  <p class="text-lg text-lightGrey">Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div
+            class="flex-1 p-6 text-center border-2 rounded-lg border-lightGrey"
+          >
+            <h2 class="mb-8 text-3xl font-bold text-center text-lightGrey">
+              Frontend Development
+            </h2>
+            <div
+              class="flex flex-row flex-wrap justify-around gap-10 text-left"
+            >
+              <article class="flex items-center gap-6">
+                <img src="{{ url_for('static', filename='images/assets/checkmark.png') }}" class="mt-4 h-9 w-9" alt="" />
+                <div class="mt-10">
+                  <h3 class="text-lg font-bold">PostgreSQL</h3>
+                  <p class="text-lg text-lightGrey">Basic</p>
+                </div>
+              </article>
+              <article class="flex items-center gap-6">
+                <img src="{{ url_for('static', filename='images/assets/checkmark.png') }}" class="mt-4 h-9 w-9" alt="" />
+                <div class="mt-10">
+                  <h3 class="text-lg font-bold">Node Js</h3>
+                  <p class="text-lg text-lightGrey">Intermediate</p>
+                </div>
+              </article>
+              <article class="flex items-center gap-6">
+                <img src="{{ url_for('static', filename='images/assets/checkmark.png') }}" class="mt-4 h-9 w-9" alt="" />
+                <div class="mt-10">
+                  <h3 class="text-lg font-bold">Express Js</h3>
+                  <p class="text-lg text-lightGrey">Intermediate</p>
+                </div>
+              </article>
+              <article class="flex items-center gap-6">
+                <img src="{{ url_for('static', filename='images/assets/checkmark.png') }}" class="mt-4 h-9 w-9" alt="" />
+                <div class="mt-10">
+                  <h3 class="text-lg font-bold">Git</h3>
+                  <p class="text-lg text-lightGrey">Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="{{ url_for('static', filename='images/assets/arrow.png') }}"
+        class="absolute hidden h-8 cursor-pointer lg:block right-20 bottom-1"
+        alt=""
+        onclick="location.href='./#projects'"
+      />
+    </section>
+    <!-- Projects -->
+    <section
+      id="projects"
+      class="flex flex-col items-center justify-center lg:relative"
+    >
+      <!-- About projects -->
+      <div class="flex flex-col gap-5 text-center mt-28">
+        <p class="text-base text-midLightGrey">Browse My Recent</p>
+        <h1 class="text-5xl font-bold">Projects</h1>
+      </div>
+      <!-- projects details -->
+      <div class="mt-8 lg:mx-44 sm:mx-10 md:mx-28">
+        <div
+          class="flex flex-col items-center justify-center"
+          id="project-container"
+        >
+          <!-- Project 1 & 2 -->
+          <div class="flex flex-wrap gap-8 sm:flex-row md:flex-col lg:flex-row">
+            <!-- Project 1 -->
+            <div
+              class="flex flex-col items-center justify-center flex-1 pt-8 pb-10 pl-12 pr-12 border-2 border-solid rounded-lg border-lightGrey bg-dullWhite"
+              id="project-container-1"
+            >
+              <img
+                src="{{ url_for('static', filename='images/assets/project-1.png') }}"
+                class="w-[32rem] h-[32rem] md:w-80 md:h-80 border-2 rounded-lg"
+                alt=""
+              />
+              <p class="mt-6 text-2xl font-bold text-center">Project One</p>
+              <div class="flex items-center justify-center gap-4 mt-6">
+                <button
+                  class="w-32 px-5 py-3 text-sm font-semibold transition-all ease-in-out delay-75 border-2 border-solid rounded-full border-darkGray hover:bg-darkGray hover:text-white"
+                >
+                  Github
+                </button>
+                <button
+                  class="w-32 px-5 py-3 text-sm font-semibold transition-all ease-in-out delay-75 border-2 border-solid rounded-full border-darkGray hover:bg-darkGray hover:text-white"
+                >
+                  Live Demo
+                </button>
+              </div>
+            </div>
+            <!-- Project 2 -->
+            <div
+              class="flex flex-col items-center justify-center flex-1 pt-8 pb-10 pl-12 pr-12 border-2 border-solid rounded-lg border-lightGrey bg-dullWhite"
+              id="project-container-2"
+            >
+              <img
+                src="{{ url_for('static', filename='images/assets/project-2.png') }}"
+                class="w-[32rem] h-[32rem] md:w-80 md:h-80 border-2 mr-0 rounded-lg"
+                alt=""
+              />
+              <p class="mt-6 text-2xl font-bold text-center">Project Two</p>
+              <div class="flex items-center justify-center gap-4 mt-6">
+                <button
+                  class="w-32 px-5 py-3 text-sm font-semibold transition-all ease-in-out delay-75 border-2 border-solid rounded-full border-darkGray hover:bg-darkGray hover:text-white"
+                >
+                  Github
+                </button>
+                <button
+                  class="w-32 px-5 py-3 text-sm font-semibold transition-all ease-in-out delay-75 border-2 border-solid rounded-full border-darkGray hover:bg-darkGray hover:text-white"
+                >
+                  Live Demo
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div
+            class="flex-1 pt-8 pb-8 pl-12 pr-12 mt-8 border-2 border-solid rounded-lg border-lightGrey lg:mx-0 bg-dullWhite"
+            id="project-container-3"
+          >
+            <img
+              src="{{ url_for('static', filename='images/assets/project-3.png') }}"
+              class="w-[32rem] h-[32rem] md:w-80 md:h-80 lg:w-[58rem] lg:h-[58rem] border-2 mx-auto rounded-lg"
+              alt=""
+            />
+            <p class="mt-6 text-2xl font-bold text-center">Project Three</p>
+            <div class="flex items-center justify-center gap-4 mt-6">
+              <button
+                class="w-32 px-5 py-3 text-sm font-semibold transition-all ease-in-out delay-75 border-2 border-solid rounded-full border-darkGray hover:bg-darkGray hover:text-white"
+              >
+                Github
+              </button>
+              <button
+                class="w-32 px-5 py-3 text-sm font-semibold transition-all ease-in-out delay-75 border-2 border-solid rounded-full border-darkGray hover:bg-darkGray hover:text-white"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="{{ url_for('static', filename='images/assets/arrow.png') }}"
+        class="absolute hidden h-8 cursor-pointer lg:block right-20 bottom-1"
+        alt=""
+        onclick="location.href='./#contact-me'"
+      />
+    </section>
+    <footer id="contact-me">
+      <div class="flex flex-col gap-5 text-center mt-28">
+        <p class="text-base text-midLightGrey">Get In Touch</p>
+        <h1 class="text-5xl font-bold">Contact Me</h1>
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <div
+          id="social-links"
+          class="flex justify-center mx-0 my-8 border-2 rounded-lg mx gap-7 border-lightGrey"
+        >
+          <div class="flex items-center justify-center gap-2 p-4">
+            <img src="{{ url_for('static', filename='images/assets/email.png') }}" alt="" class="h-[2.5rem]" />
+            <p class="text-lg">
+              <a
+                href="mailto:examplemail@gmail.com"
+                class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+                >Example@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="flex items-center justify-center gap-2 p-4">
+            <img src="{{ url_for('static', filename='images/assets/linkedin.png') }}" alt="" class="h-[2rem]" />
+            <p class="text-lg">
+              <a
+                href="mailto:examplemail@gmail.com"
+                class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+                >Linkedin</a
+              >
+            </p>
+          </div>
+        </div>
+        <div
+          id="nav-link-container"
+          class="flex items-center justify-center space-x-8 text-2xl text-center lg:flex"
+        >
+          <ul class="gap-10 text-center sm:flex" id="list-link">
+            <li>
+              <a
+                href="#about-me"
+                class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#experience"
+                class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+                >Experience</a
+              >
+            </li>
+            <li>
+              <a
+                href="#projects"
+                class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact-me"
+                class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <p class="mt-4 text-center text-superLightGrey">
+          Copyright © 2023 John Doe. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
+<!-- ......Created by Rani.dev ❤️❤️❤️..... -->

@@ -1,0 +1,30 @@
+<div class="mt-8 lg:mx-16">
+        <div
+          class="flex items-center justify-center mx-auto my-8 border-2 rounded-lg gap-7 border-lightGrey"
+        >
+          <div class="flex items-center justify-center gap-3">
+            <div class="h-9 w-9">
+              <img src="./assets/email.png" alt="" />
+            </div>
+            <p class="text-lg font-semibold text-center">
+              <a
+                href="#"
+                class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+                >Example@gmail.com</a
+              >
+            </p>
+          </div>
+          <div class="flex gap-3">
+            <div class="w-8 h-8">
+              <img src="./assets/linkedin.png" alt="" />
+            </div>
+            <p class="text-lg font-semibold text-center">
+              <a
+                href="#"
+                class="hover:text-gray-400 hover:underline hover:underline-offset-[16px]"
+                >LinkedIn</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
